@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     
     public GameObject PresentPrefab;
+    public GameObject SkullPresentPrefab;
     public GameObject KatapultPrefab;
     // -9 -> 9 width
     // -2 -> 4 height
@@ -28,14 +29,14 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
     
-    void SpawnPresent()
+    void SpawnPresent(GameObject prefab)
     {
         float randomX = Random.Range(minX, maxX);
         float randomY = Random.Range(minY, maxY);
         
         Vector3 randomPosition = new Vector3(randomX, randomY, 0f);
         
-        var obj = Instantiate(PresentPrefab, randomPosition, Quaternion.identity);
+        var obj = Instantiate(prefab, randomPosition, Quaternion.identity);
 
         float randomScale = Random.Range(minPresentScale, maxPresentScale);
 
@@ -65,7 +66,8 @@ public class GameManager : MonoBehaviour
         float randomWaitTime = Random.Range(minSpawnTime, maxSpawnTime);
         yield return new WaitForSeconds(randomWaitTime);
         
-        SpawnPresent();
+        SpawnPresent(PresentPrefab);
+        SpawnPresent(SkullPresentPrefab);
 
         isSpawning = false; 
     }
