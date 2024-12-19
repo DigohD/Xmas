@@ -16,7 +16,10 @@ public class GameManager : MonoBehaviour
     public float maxY = 2.0f;
     
     public float minSpawnTime = 1f;
-    public float maxSpawnTime = 5f;
+    public float maxSpawnTime = 3f;
+    
+    public float minPresentScale = 0.25f;
+    public float maxPresentScale = 1.65f;
     
     private bool isSpawning = false;
 
@@ -32,7 +35,11 @@ public class GameManager : MonoBehaviour
         
         Vector3 randomPosition = new Vector3(randomX, randomY, 0f);
         
-        Instantiate(PresentPrefab, randomPosition, Quaternion.identity);
+        var obj = Instantiate(PresentPrefab, randomPosition, Quaternion.identity);
+
+        float randomScale = Random.Range(minPresentScale, maxPresentScale);
+
+        obj.transform.localScale *= randomScale;
     }
     
     public void TriggerSpawn()
