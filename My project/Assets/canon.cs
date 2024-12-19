@@ -69,6 +69,8 @@ public class canon : MonoBehaviour
         ball.transform.SetParent(null);
         ball.SetActive(true);
         ball.GetComponent<Rigidbody2D>().AddForce(ball.transform.right * powerValue * 10);
+        GetComponent<AudioSource>().Play();
+        
         
         cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
         StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
