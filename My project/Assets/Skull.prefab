@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3239243529989585742}
   - component: {fileID: 1382339861756705886}
   m_Layer: 6
-  m_Name: Present
+  m_Name: Skull
   m_TagString: Present
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.5
   speed: 2
-  DeathEffect: {fileID: 5146606288707922247, guid: 3b4967eb26ac5f74cb31ce6cb1934f3f, type: 3}
+  DeathEffect: {fileID: 0}
 --- !u!212 &7721268488684545184
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0f47dcf33049e394dbe4061c126154be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c41d01b9594051f4f947c080af8d48e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.2
   speed: 1
-  DeathEffect: {fileID: 0}
+  DeathEffect: {fileID: 5146606288707922247, guid: 3b4967eb26ac5f74cb31ce6cb1934f3f, type: 3}
 --- !u!50 &1382339861756705886
 Rigidbody2D:
   serializedVersion: 4

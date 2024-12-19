@@ -111,7 +111,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
 --- !u!114 &5525241895635977702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minRotationSpeed: 200
   maxRotationSpeed: 1000
+  DeathEffect: {fileID: 5146606288707922247, guid: 3b4967eb26ac5f74cb31ce6cb1934f3f, type: 3}
   cameraShake: {fileID: 0}
   shakeDuration: 0.3
   shakeMagnitude: 0.1

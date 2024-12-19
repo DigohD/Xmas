@@ -1253,6 +1253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PresentPrefab: {fileID: 1792572055186230907, guid: 55b3650699de7304f94c36f569bbb11c, type: 3}
+  SkullPresentPrefab: {fileID: 1792572055186230907, guid: 6ac24945a70d3394c8ad602749e2bdc7, type: 3}
   KatapultPrefab: {fileID: 5116744118440348961, guid: d37c7ec40b8a6f04db1f4b093a01e771, type: 3}
   minX: -9
   maxX: 9

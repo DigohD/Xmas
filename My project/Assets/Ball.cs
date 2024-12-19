@@ -7,6 +7,8 @@ public class Ball : MonoBehaviour
     [SerializeField] private float minRotationSpeed = 200f;
     [SerializeField] private float maxRotationSpeed = 1000f;
     private float rotationSpeed;
+
+    public GameObject DeathEffect;
     
     void Start()
     {
@@ -33,6 +35,7 @@ public class Ball : MonoBehaviour
             Destroy(other.gameObject);
             cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
             StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
+            Instantiate(DeathEffect, other.transform.position, Quaternion.identity);
         }else if (other.gameObject.layer == terrainLayer)
         {
             GameManager.Instance.TriggerSpawn();

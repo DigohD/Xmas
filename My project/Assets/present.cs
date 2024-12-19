@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class present : MonoBehaviour
     [SerializeField] private float amplitude = 0.5f; // How high/low it hovers
     [SerializeField] private float speed = 2f;       // How fast it hovers
 
+    public GameObject DeathEffect;
+    
     private Vector3 startPosition;
 
     void Start()
