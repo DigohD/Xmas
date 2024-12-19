@@ -6,14 +6,20 @@ public class canon : MonoBehaviour
 {
     [SerializeField] private float chargeRate = 50f; // Increase this value to charge faster
     [SerializeField] private float maxPower = 100f;
-
+   
+    
     public GameObject ball;
     
     public float currentPower = 0f;
     private bool isCharging = false;
 
+    public ParticleSystem FireEffect;
+  
+    
     void Update()
     {
+       
+        
         // Check if spacebar is pressed
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -60,5 +66,7 @@ public class canon : MonoBehaviour
         ball.transform.SetParent(null);
         ball.SetActive(true);
         ball.GetComponent<Rigidbody2D>().AddForce(ball.transform.right * powerValue * 10);
+        
+        FireEffect.Play();
     }
 }
