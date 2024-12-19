@@ -164,6 +164,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minRotationSpeed: 200
   maxRotationSpeed: 1000
+  cameraShake: {fileID: 0}
+  shakeDuration: 0.3
+  shakeMagnitude: 0.1
 --- !u!1 &3074793726687213804
 GameObject:
   m_ObjectHideFlags: 0
@@ -10254,8 +10257,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeRate: 50
   maxPower: 100
+  cameraShake: {fileID: 0}
+  shakeDuration: 0.3
+  shakeMagnitude: 0.1
   ball: {fileID: 807836056939633003}
   currentPower: 0
+  FireEffect: {fileID: 2356326472476756861}
 --- !u!1 &8043993368793900142
 GameObject:
   m_ObjectHideFlags: 0

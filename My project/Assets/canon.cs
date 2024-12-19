@@ -7,7 +7,10 @@ public class canon : MonoBehaviour
     [SerializeField] private float chargeRate = 50f; // Increase this value to charge faster
     [SerializeField] private float maxPower = 100f;
    
-    
+    public CameraShake cameraShake; // Reference to the CameraShake script
+    public float shakeDuration = 0.3f; // Duration of the shake
+    public float shakeMagnitude = 0.1f;
+
     public GameObject ball;
     
     public float currentPower = 0f;
@@ -66,6 +69,9 @@ public class canon : MonoBehaviour
         ball.transform.SetParent(null);
         ball.SetActive(true);
         ball.GetComponent<Rigidbody2D>().AddForce(ball.transform.right * powerValue * 10);
+        
+        cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
+        StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
         
         FireEffect.Play();
     }
