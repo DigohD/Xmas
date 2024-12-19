@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+    
     public GameObject PresentPrefab;
     public GameObject KatapultPrefab;
     // -9 -> 9 width
@@ -17,6 +19,11 @@ public class GameManager : MonoBehaviour
     public float maxSpawnTime = 5f;
     
     private bool isSpawning = false;
+
+    void Awake()
+    {
+        Instance = this;
+    }
     
     void SpawnPresent()
     {
@@ -34,6 +41,11 @@ public class GameManager : MonoBehaviour
         {
             var katapultRef = GameObject.FindGameObjectWithTag("Katapult");
             Destroy(katapultRef);
+            var allPresents = GameObject.FindGameObjectsWithTag("Present");
+            foreach (var present in allPresents)
+            {
+                Destroy(present);
+            }
             Instantiate(KatapultPrefab, new Vector3(-9.0f, -3.4f, 0.0f), Quaternion.identity);
             StartCoroutine(SpawnAtRandomIntervals());
         }
