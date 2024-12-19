@@ -19,6 +19,10 @@ public class Ball : MonoBehaviour
         transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
     }
     
+    public CameraShake cameraShake; // Reference to the CameraShake script
+    public float shakeDuration = 0.3f; // Duration of the shake
+    public float shakeMagnitude = 0.1f;
+    
     void OnTriggerEnter2D(Collider2D other)
     {
         int presentLayer = LayerMask.NameToLayer("Present");
@@ -27,6 +31,8 @@ public class Ball : MonoBehaviour
         if (other.gameObject.layer == presentLayer)
         {
             Destroy(other.gameObject);
+            cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
+            StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
         }else if (other.gameObject.layer == terrainLayer)
         {
             GameManager.Instance.TriggerSpawn();
