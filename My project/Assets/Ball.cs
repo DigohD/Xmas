@@ -35,8 +35,24 @@ public class Ball : MonoBehaviour
             Destroy(other.gameObject);
             cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
             StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
-            Instantiate(DeathEffect, other.transform.position, Quaternion.identity);
-        }else if (other.gameObject.layer == terrainLayer)
+
+            // Instantiate the DeathEffect
+            var effectInstance = Instantiate(DeathEffect, other.transform.position, Quaternion.identity);
+
+            // Check if the name of the object hit has "Skull"
+            if (other.gameObject.name.Contains("Skull"))
+            {
+                // Get the ParticleSystem component from the instantiated effect
+                ParticleSystem ps = effectInstance.GetComponent<ParticleSystem>();
+                if (ps != null)
+                {
+                    var main = ps.main;
+                    // Set the start color to a gradient from Red to Black
+                    main.startColor = new ParticleSystem.MinMaxGradient(Color.red, Color.black);
+                }
+            }
+        }
+        else if (other.gameObject.layer == terrainLayer)
         {
             GameManager.Instance.TriggerSpawn();
             Destroy(gameObject);

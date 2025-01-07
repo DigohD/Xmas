@@ -16,6 +16,9 @@ public class fire : MonoBehaviour
         // Apply the rotation around the Z-axis (typical for 2D)
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
+        if (!GameManager.FiringAllowed)
+            return;
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Destroy(this);

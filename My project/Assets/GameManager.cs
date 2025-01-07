@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     
     private bool isSpawning = false;
 
+    public static bool FiringAllowed;
+    
     void Awake()
     {
         Instance = this;
@@ -56,6 +58,8 @@ public class GameManager : MonoBehaviour
             }
             Instantiate(KatapultPrefab, new Vector3(-9.0f, -3.4f, 0.0f), Quaternion.identity);
             StartCoroutine(SpawnAtRandomIntervals());
+
+            FiringAllowed = false;
         }
     }
     
@@ -70,6 +74,8 @@ public class GameManager : MonoBehaviour
         SpawnPresent(SkullPresentPrefab);
 
         isSpawning = false; 
+        
+        FiringAllowed = true;
     }
     
     
